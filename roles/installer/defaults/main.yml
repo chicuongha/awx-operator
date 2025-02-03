@@ -212,6 +212,12 @@ task_annotations: ''
 #   my.web-annotation/2: value2
 web_annotations: ''
 
+# Add annotations to postgres pod. Specify as literal block. E.g.:
+# postgres_annotations: |
+#   my.annotation/1: value
+#   my.annotation/2: value2
+postgres_annotations: ''
+
 admin_user: admin
 admin_email: test@example.com
 
@@ -234,6 +240,9 @@ postgres_configuration_secret: ''
 # Secret to lookup that provides old database credentials (for migration)
 
 old_postgres_configuration_secret: ''
+
+# Allow additional parameters to be added to the pg_dump backup command during AAP VMs to OCP migration
+pg_dump_suffix: ''
 
 # Secret to lookup that provides default execution environment pull credentials
 #
@@ -433,11 +442,11 @@ projects_storage_access_mode: ReadWriteMany
 
 ca_trust_bundle: "/etc/pki/tls/certs/ca-bundle.crt"
 
-# Secret to lookup that provides the LDAP CACert trusted bundle
+# Secret to lookup that provides the LDAP CACert trusted bundle (Deprecated)
 #
 ldap_cacert_secret: ''
 
-# Secret to lookup that provides the LDAP bind password
+# Secret to lookup that provides the LDAP bind password (Deprecated)
 ldap_password_secret: ''
 
 # Secret to lookup that provides the custom CA trusted bundle
